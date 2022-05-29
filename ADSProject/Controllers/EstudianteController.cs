@@ -12,10 +12,12 @@ namespace ADSProject.Controllers
     public class EstudianteController : Controller
     {
         private readonly IEstudianteRepository estudianteRepository;
+        private readonly ICarreraRepository carreraRepository;
 
-        public EstudianteController(IEstudianteRepository estudianteRepository)
+        public EstudianteController(IEstudianteRepository estudianteRepository, ICarreraRepository carreraRepository)
         {
             this.estudianteRepository = estudianteRepository;
+            this.carreraRepository = carreraRepository;
         }
 
         [HttpGet]
@@ -47,6 +49,8 @@ namespace ADSProject.Controllers
                 }
                 // Indica el tipo de operacion que es esta realizando
                 ViewData["Operaciones"] = operaciones;
+
+                // 
 
                 return View(estudiante);
 
